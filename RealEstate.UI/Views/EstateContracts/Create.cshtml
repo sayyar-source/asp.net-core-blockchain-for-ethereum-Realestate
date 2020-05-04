@@ -1,0 +1,131 @@
+﻿@model RealEstate.Domain.Estate.EstateContract
+
+
+    <html lang="en">
+    <head>
+        <title>Single Listing</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="myHOME - real estate template project">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="~/styles/bootstrap-4.1.2/bootstrap.min.css">
+        <link href="~/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="~/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="~/styles/single.css">
+        <link rel="stylesheet" type="text/css" href="~/styles/single_responsive.css">
+    </head>
+    <body>
+
+        <div class="super_container">
+            <div class="super_overlay"></div>
+
+            <!-- Header -->
+
+            @Html.Partial("_headerbar")
+
+
+
+            <!-- Menu -->
+
+            @Html.Partial("_menu")
+
+            <!-- Home -->
+
+            <div class="home">
+                <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/images/listings.jpg" data-speed="0.8"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content text-center">
+                                <div class="home_title">Listings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <!-- Listing -->
+
+            <div class="row" style="margin-left:200px">
+                <div class="col-md-4">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                        <div class="form-group">
+                            <label asp-for="EstateId" class="control-label"></label>
+                            <select asp-for="EstateId" asp-items="@ViewBag.Estats" class="form-control"></select>
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BuyerUserId" class="control-label"></label>
+                            <select asp-for="BuyerUserId" asp-items="@ViewBag.MyUser" class="form-control"></select>
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SellerUserId" class="control-label"></label>
+                            <select asp-for="SellerUserId" asp-items="@ViewBag.MyUser" class="form-control"></select>
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Note" class="control-label"></label>
+                            <input asp-for="Note" class="form-control" />
+                            <span asp-validation-for="Note" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Amount" class="control-label"></label>
+                            <input asp-for="Amount" class="form-control" />
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @{
+                
+                if (ViewBag.result == true)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-right:600px;margin-left:200px">
+                        Estate Contract Saved Successfully.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-right:600px;margin-left:200px">
+                        Estate Contract Saved Successfully.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+
+            }
+
+
+
+
+            <!-- Footer -->
+
+            @Html.Partial("_footer")
+        </div>
+
+        @Html.Partial("_footerscript")
+        <script src="~/plugins/colorbox/jquery.colorbox-min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+        <script src="~/js/single.js"></script>
+    </body>
+    </html>
+
+
+
+
+<div>
+    <a asp-action="Index" asp-route-id="@ViewBag.EstateId">Back to List</a>
+</div>
+

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About us</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="myHOME - real estate template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ @Html.Partial("_header");
+    <link rel="stylesheet" type="text/css" href="~/styles/about.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/about_responsive.css">
+</head>
+<body>
+
+    <div class="super_container">
+        <div class="super_overlay"></div>
+
+        <!-- Header -->
+
+        @Html.Partial("_headerbar");
+
+        <!-- Menu -->
+
+        @Html.Partial("_menu");
+
+        <!-- Home -->
+
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/about.jpg" data-speed="0.8"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content text-center">
+                            <div class="home_title">About us</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Intro -->
+
+        @Html.Partial("_aboutIntro")
+
+        <!-- Services -->
+
+       @Html.Partial("_aboutServices")
+
+        <!-- Milestones -->
+
+        @Html.Partial("_aboutMilestones")
+
+        <!-- Agents -->
+
+       @Html.Partial("_aboutAgents")
+
+        <!-- Footer -->
+
+        @Html.Partial("_footer")
+    </div>
+
+    @Html.Partial("_footerscript");
+ 
+    <script src="~/js/about.js"></script>
+</body>
+</html>
+

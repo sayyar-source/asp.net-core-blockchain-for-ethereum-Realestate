@@ -1,0 +1,168 @@
+﻿@model List<RealEstate.Domain.Dto.RequestEstateViewModel>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Single Listing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="myHOME - real estate template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/styles/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="~/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/styles/single.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/single_responsive.css">
+</head>
+<body>
+
+    <div class="super_container">
+        <div class="super_overlay"></div>
+
+        <!-- Header -->
+
+        @Html.Partial("_headerbar")
+
+
+
+        <!-- Menu -->
+
+        @Html.Partial("_menu")
+
+        <!-- Home -->
+
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/images/listings.jpg" data-speed="0.8"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content text-center">
+                            <div class="home_title">Listings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <!-- Listing -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <table id="tbl1" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Estate Title</th>
+                                <th scope="col">subject</th>
+                                <th scope="col">Note</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th id="id" scope="row">@item.Id</th>
+                                    <td id="username">@item.Username</td>
+                                    <td>@item.EstateName</td>
+                                    <td>@item.Subject</td>
+                                    <td>@item.Note</td>
+                                    <td>
+                                        
+                                        <button type="button" onclick="showdetiles()" class="btn btn-primary"><i class="fa fa-eye"></i></button>
+                                        <button type="button" onclick="showdetiles()" class="btn btn-success" ><i class="fa fa-edit"></i></button>
+                                        <button type="button" onclick="showdetiles()" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                       
+
+                                     
+                                       
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+
+        @Html.Partial("_footer")
+    </div>
+
+    @Html.Partial("_footerscript")
+    <script src="~/plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+    <script src="~/js/single.js"></script>
+</body>
+</html>
+<style>
+    /* Tabs*/
+    section {
+        padding: 60px 0;
+    }
+
+        section .section-title {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+    .nav-link {
+        background: #EDF1F9;
+    }
+
+    #tabs h6.section-title {
+        color: #eee;
+    }
+
+    #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        color: #f3f3f3;
+        background-color: transparent;
+        border-color: transparent transparent #f3f3f3;
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #tabs .nav-tabs .nav-link {
+        border: 1px solid transparent;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+        color: #000000;
+        font-size: 20px;
+    }
+
+    #contract {
+        padding-top: 20px;
+    }
+    
+</style>
+<style>
+    .container {
+  padding: 2rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+
+</style>
+<script>
+  
+ function showdetiles() {
+        $(document).on("click", "#tbl1 tbody tr", function () {
+            var getuser = $(this).closest('tr').find('#username').text();
+            var url = '@Url.Action( "RequestDetiles","EstateContracts",new {username="data"})';
+            url = url.replace("data", getuser);
+            location.href = url;
+        });
+   
+    }
+</script>

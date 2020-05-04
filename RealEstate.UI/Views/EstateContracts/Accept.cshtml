@@ -1,0 +1,99 @@
+﻿@model RealEstate.Domain.Estate.EstateContract
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<RealEstate.Domain.User.ApplicationUser> _usermanager
+
+@{
+    ViewData["Title"] = "Accept";
+}
+
+<h1>Accept Contract</h1>
+
+<h3>Are you sure you want to Accept Contract?</h3>
+<div>
+    <h4>EstateContract</h4>
+    <hr />
+    <dl class="row">
+       
+        <dt class="col-sm-2">
+            OwnerUser
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                var owneruser = _usermanager.FindByIdAsync(Model.OwnerUserId).Result;
+            }
+            Name: @owneruser.FirstName <br />
+            LastName: @owneruser.LastName<br />
+            Phone Number: @owneruser.PhoneNumber
+        </dd>
+        <dt class="col-sm-2">
+            BuyerUser
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                var buyeruser = _usermanager.FindByIdAsync(Model.BuyerUserId).Result;
+            }
+            Name: @buyeruser.FirstName <br />
+            LastName: @buyeruser.LastName<br />
+            Phone Number: @buyeruser.PhoneNumber
+        </dd>
+        <dt class = "col-sm-2">
+            SellerUser
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                var seleruser = _usermanager.FindByIdAsync(Model.SellerUserId).Result;
+            }
+            Name: @seleruser.FirstName <br />
+            LastName: @seleruser.LastName<br />
+            Phone Number: @seleruser.PhoneNumber
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BuyerOK)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BuyerOK)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SellerOK)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SellerOK)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BuyerOKTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BuyerOKTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SellerOKTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SellerOKTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Modified)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Modified)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+    </dl>
+    
+    <form asp-action="Accept">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Accept" class="btn btn-success" /> |
+        <a asp-action="Index" asp-route-id="@Model.EstateId">Back to List</a>
+    </form>
+</div>

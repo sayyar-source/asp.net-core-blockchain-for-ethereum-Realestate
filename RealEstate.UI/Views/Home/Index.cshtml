@@ -1,0 +1,57 @@
+﻿@model List<RealEstate.Domain.Estate.Estates>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>myHOME</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="myHOME - real estate template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Html.Partial("_header");
+    <link rel="stylesheet" type="text/css" href="~/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/responsive.css">
+
+</head>
+<body>
+
+    <div class="super_container">
+        <div class="super_overlay"></div>
+        <!-- Header -->
+        @Html.Partial("_headerbar")
+        <!-- Menu -->
+        @Html.Partial("_menu")
+        <!-- Home -->
+        <div class="home">
+
+            <!-- Home Slider -->
+            @Html.Partial("_homeslider")
+        </div>
+
+        <!-- Search -->
+        @Html.Partial("_search")
+
+
+        <!-- Featured -->
+
+        @Html.Partial("_featured",Model)
+
+        <!-- Map Section -->
+
+        @Html.Partial("_mapsection")
+
+        <!-- Hot -->
+
+        @Html.Partial("_hot")
+
+        <!-- Testimonials -->
+        @Html.Partial("_testimonials")
+
+        <!-- Footer -->
+        @Html.Partial("_footer")
+    </div>
+
+    @Html.Partial("_footerscript");
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+    <script src="~/js/custom.js"></script>
+</body>
+</html>

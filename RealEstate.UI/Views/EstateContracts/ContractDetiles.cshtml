@@ -1,0 +1,196 @@
+﻿
+@model RealEstate.Domain.Dto.ContractEstateViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Single Listing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="myHOME - real estate template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" type="text/css" href="~/styles/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="~/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/styles/single.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/single_responsive.css">
+</head>
+<body>
+
+    <div class="super_container">
+        <div class="super_overlay"></div>
+
+        <!-- Header -->
+
+        @Html.Partial("_headerbar")
+
+
+
+        <!-- Menu -->
+
+        @Html.Partial("_menu")
+
+        <!-- Home -->
+
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/images/listings.jpg" data-speed="0.8"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content text-center">
+                            <div class="home_title">Listings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <!-- Listing -->
+        <div class="container" style="margin-left:200px;margin-bottom:50px">
+            <div class="row">
+                <div class="col-8 col-sm-6 col-md-6">
+                    <div class="well well-sm">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <img src="~/images/@Model.LogoURL" alt="" class="img-rounded img-responsive" />
+                            </div>
+                            <div class="col-sm-6 col-md-8">
+                                <h3>
+                                    @Model.EstateTitle
+                                </h3>
+
+                                <p>
+                                    <i class="glyphicon glyphicon-ok-sign"></i>ContractId: @Model.ContractId
+                                    <br />
+                                    <h4>
+                                        Owner:
+                                    </h4>
+                                    <br />
+                                    <i class="glyphicon glyphicon-user"></i>First Name: @Model.OwnerName
+                                    <br />
+                                    <i class="glyphicon glyphicon-user"></i>Last Name: @Model.OwnerLastname
+                                    <br />
+                                    <i class="glyphicon glyphicon-phone"></i>Phone: @Model.OwnerPhone
+                                    <br />
+                                    <h4>  Seler:</h4>
+                                    <br />
+                                    <i class="glyphicon glyphicon-user"></i>First Name: @Model.SelerName
+                                    <br />
+                                    <i class="glyphicon glyphicon-user"></i>Last Name: @Model.SelerLastname
+                                    <br />
+                                    <i class="glyphicon glyphicon-phone"></i>Phone: @Model.SelerPhone
+                                    <br />
+                                    <h4>Buyer:</h4>
+                                    <br />
+                                    <i class="glyphicon glyphicon-user"></i>First Name: @Model.BuyerName
+                                    <br />
+                                    <i class="glyphicon glyphicon-user"></i>Last Name: @Model.BuyerLastname
+                                    <br />
+                                    <i class="glyphicon glyphicon-phone"></i>Phone: @Model.BuyerPhone
+                                    <br />
+                                   <br /><br />
+                                    <i class="glyphicon glyphicon-time"></i>CreateDate: @Model.CreateDate
+                                    <br />
+                                    <i class="glyphicon glyphicon-time"></i>Buyer Ok: @Model.BuyerOk
+                                    <br />
+                                    <i class="glyphicon glyphicon-time"></i>Seler Ok: @Model.SelerOk
+                                    <br />
+                                    <i class="glyphicon glyphicon-time"></i>Buyer Ok Time: @Model.BuyerOkTime
+                                    <br />
+                                    <i class="glyphicon glyphicon-time"></i>Seler Ok Time: @Model.SelerOkTime
+                                    <br />
+                                    <i class="glyphicon glyphicon-euro"></i>Token Count: @Model.Amount
+
+                                </p>
+                                <p>
+                                    <i class="glyphicon glyphicon-tags"></i>Title: @Model.EstateTitle
+                                    <br />
+                                    <i class="glyphicon glyphicon-envelope"></i>Note: @Model.Note
+
+                                </p>
+                                <p>
+
+                                    <a asp-action="ContractsList" class="btn btn-primary">Return To Request List </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Footer -->
+
+        @Html.Partial("_footer")
+    </div>
+
+    @Html.Partial("_footerscript")
+    <script src="~/plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+    <script src="~/js/single.js"></script>
+</body>
+</html>
+<style>
+    /* Tabs*/
+    section {
+        padding: 60px 0;
+    }
+
+        section .section-title {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+    .nav-link {
+        background: #EDF1F9;
+    }
+
+    #tabs h6.section-title {
+        color: #eee;
+    }
+
+    #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        color: #f3f3f3;
+        background-color: transparent;
+        border-color: transparent transparent #f3f3f3;
+        border-bottom: 4px solid !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #tabs .nav-tabs .nav-link {
+        border: 1px solid transparent;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+        color: #000000;
+        font-size: 20px;
+    }
+
+    #contract {
+        padding-top: 20px;
+    }
+
+    body {
+        padding-top: 30px;
+    }
+
+    .glyphicon {
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+    small {
+        display: block;
+        line-height: 1.428571429;
+        color: #999;
+    }
+</style>
+

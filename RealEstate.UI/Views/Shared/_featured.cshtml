@@ -1,0 +1,63 @@
+﻿@model List<RealEstate.Domain.Estate.Estates>
+<div class="featured">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container text-center">
+                    <div class="section_subtitle">the best deals</div>
+                    <div class="section_title"><h1>Featured Properties</h1></div>
+                </div>
+            </div>
+        </div>
+        <div class="row featured_row">
+
+            <!-- Featured Item -->
+            @foreach (var item in Model)
+            {
+            <div class="col-lg-4">
+                <div class="listing">
+                    <div class="listing_image">
+                        <div class="listing_image_container">
+                            <img src="~/images/@item.EstateLogo" alt="">
+                        </div>
+                        <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
+                            <div class="tag tag_house"><a href="~/Account/listings">house</a></div>
+                            <div class="tag tag_sale"><a href="~/Account/listings">for sale</a></div>
+                        </div>
+                        <div class="tag_price listing_price">TL @item.Price</div>
+                    </div>
+                    <div class="listing_content">
+                        <div class="prop_location listing_location d-flex flex-row align-items-start justify-content-start">
+                            <img src="~/images/icon_1.png" alt="">
+                            <a href="~/home/single?id=@item.Id">@item.Address</a>
+                        </div>
+                        <div class="listing_info">
+                            <ul class="d-flex flex-row align-items-center justify-content-start flex-wrap">
+                                <li class="property_area d-flex flex-row align-items-center justify-content-start">
+                                    <img src="~/images/icon_2.png" alt="">
+                                    <span>@item.Area sq ft</span>
+                                </li>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <img src="~/images/icon_3.png" alt="">
+                                    <span>@item.Baths</span>
+                                </li>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <img src="~/images/icon_4.png" alt="">
+                                    <span>@item.Beds</span>
+                                </li>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <img src="~/images/icon_5.png" alt="">
+                                    <span>@item.Garages</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+
+
+        </div>
+    </div>
+</div>

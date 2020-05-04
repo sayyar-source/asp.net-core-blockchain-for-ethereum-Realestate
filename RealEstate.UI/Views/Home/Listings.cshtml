@@ -1,0 +1,74 @@
+﻿@model List<RealEstate.Domain.Estate.Estates>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Listings</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="myHOME - real estate template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Html.Partial("_header")
+    <link rel="stylesheet" type="text/css" href="~/styles/listings.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/listings_responsive.css">
+</head>
+<body>
+
+    <div class="super_container">
+        <div class="super_overlay"></div>
+
+        <!-- Header -->
+
+        @Html.Partial("_headerbar");
+
+        <!-- Menu -->
+
+        @Html.Partial("_menu");
+
+        <!-- Home -->
+
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="../images/listings.jpg" data-speed="0.8"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content text-center">
+                            <div class="home_title">Listings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search -->
+
+        @Html.Partial("_search")
+
+        <!-- Listings -->
+
+        <div class="listings">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        <!-- Sorting -->
+                        @Html.Partial("_listingsSorting")
+
+                        <!-- Listings Container -->
+                        @Html.Partial("_listingsListings",Model)
+                        <div class="load_more">
+                            <div class="button ml-auto mr-auto"><a href="#">load more</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+
+        @Html.Partial("_footer")
+    </div>
+    @Html.Partial("_footerscript");
+    <script src="~/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="~/js/listings.js"></script>
+</body>
+</html>
